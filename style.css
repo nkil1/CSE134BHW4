@@ -1,0 +1,202 @@
+:root {
+    background-color:color-mix(in srgb, #ECECEC 80%, skyblue);
+    font-family: 'Segoe UI' , Arial, Helvetica, sans-serif;
+    --border-rad-size: 10px;
+    --my-favorite-color: green;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows:10% 30% 60%;
+    gap: 10px;
+
+}
+
+@keyframes slide-in {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0); /* Slide in to the natural position */
+    }
+  }
+
+.top-of-page {
+    grid-row: 1;
+    box-sizing: border-box;
+    height: 144px;
+    background-color: skyblue;
+    border-radius: var(--border-rad-size);
+    border-radius: 10px;
+    align-items: flex-start;
+}
+
+header > h1{
+    text-align: center;
+    transform: translateX(-100%);
+    animation: slide-in 2s forwards;
+}
+
+#links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:10px;
+    border-radius: var(--border-rad-size);
+    border-radius: 10px;
+    background-color:#0056b3;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-link {
+    flex-grow: 1;
+    flex-direction:row;
+    text-align: center;
+    border-radius: 10px;
+    padding: 1em;
+    background-color: #007bff;
+    color: white;
+    text-decoration: double;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        grid-template-columns: 1fr;
+        grid-template-rows:10% 40% 60%;
+    }
+}
+
+@media (max-width: 480px) {
+    .wrapper {
+        grid-template-columns: 1fr;
+        grid-template-rows:10% 40% 60%;
+    }
+}
+.main-body {
+    grid-row: 2;
+    display:flex;
+}
+
+.main-body  h3 {
+    color: hsla(194, 100%, 58%, 0.747)
+}
+.main-body img {
+    min-width: 300px;
+}
+.main-body main {
+    display:flex;
+ 
+    margin-right:20px;
+}
+
+svg {
+    animation: colorCycle 5s infinite linear;
+    fill: var(--my-favorite-color, green);
+  }
+
+@keyframes colorCycle {
+    0% { fill: red; }
+    25% { fill: blue; }
+    50% { fill: var(--my-favorite-color); }
+    75% { fill: yellow; }
+    100% { fill: red; }
+  }
+  
+
+figcaption {
+    text-align:center;
+}
+
+#projects {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-direction:column
+}
+#projects h2 {
+font-size:2rem;
+}
+#projects  img {
+  width: 100%; 
+  max-width: 40dvh; 
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    #projects img {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .project-buttons {
+        width: 40px; /* Adjust the width of buttons */
+        height: 40px; /* Adjust the height of buttons */
+        font-size: 12px; /* Adjust font size if needed */
+        /* Other styling adjustments */
+      }
+    
+      .project-buttons.left {
+        left: 5px; /* Adjust to ensure it doesn't touch the screen edge */
+      }
+    
+      .project-buttons.right {
+        right: 5px; /* Adjust to ensure it doesn't touch the screen edge */
+      }
+}
+
+.project-buttons {
+  position: absolute; 
+  transform: translateY(-50%);
+  
+}
+/* Additional styles specific to the left and right buttons */
+.project-buttons.left {
+  left: 10px; /* Position to the left */
+}
+
+.project-buttons.right {
+  right: 10px; /* Position to the right */
+}
+
+footer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    flex-direction:row;
+}
+
+footer > * {
+    flex-basis: 40%;
+    box-sizing: border-box;
+}
+
+
+iframe {
+    width: 100%; /* Full width of its parent's flex-basis */
+    height: 300px; /* Adjust the height as needed */
+  }
+  
+  form {
+    width: 100%; /* Full width of its parent's flex-basis */
+  }
+  
+  @media (max-width: 768px) {
+    footer {
+      flex-direction: column;
+    }
+  
+    #contact-stuff > * {
+      flex-basis: 100%; /* Each child takes full width on small screens */
+    }
+  }
+

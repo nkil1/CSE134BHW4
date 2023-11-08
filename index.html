@@ -1,228 +1,120 @@
-<!DOCTYPE html> <!-- Extra Credit #2: Developers could not make use of MathML until very recently because popular browsers like Google Chrome simply did not support it.-->
+<!DOCTYPE html>
+<!-- Extra Credit #2: Developers could not make use of MathML until very recently because popular browsers like Google Chrome simply did not support it.-->
 <html lang="en">
-    <head> 
-        <!-- Extra Credit #3 -->
-        <meta name="description" content = "This is Noah Kil's portfolio site.">
-        <meta charset="utf-8">
-        <title>Noah Kil's Portfolio Page</title>
-        <link href="foo.css" rel="stylesheet"> <!--empty stylesheet for usage of link tag-->
-    </head>
+  <head>
+    <!-- Extra Credit #3 -->
+    <meta name="description" content="This is Noah Kil's portfolio site.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta charset="utf-8">
 
-<body>
-    <header>
-        <h1>Welcome to Noah Kil's Portfolio Site! </h1>
-        <hr>
-        <nav>
-    <strong> Links: 
-            <a href="https://github.com/quantiumtech">GitHub</a>
-            <a href="resume.html">Resume</a>
-            <a href="https://www.linkedin.com/in/noah-kil-24635821a/">LinkedIn</a>    
-            <a href="">Glassdoor</a>    
-            <a href="">Handshake</a>     
-    </strong>
-    </nav>
-    </header>
-
-<main>
-    <figure>
-        <picture> 
-            <source media="(orientation: portrait)" srcset="sources/filler_image.png"> <!-- media allowed as per professor's slack comment-->
-            <img src = "sources/filler_image.png" alt="Portrait of me">
-        </picture>
-         <figcaption>
-            <pre>
-                  This is a picture of me!
-                    </pre>
-        </figcaption>
-    </figure>
-    <section>
-        <h3> Introduction</h3>
-        
-        <p>My name is <b>Noah Kil</b>. I am a 4th year <i>Computer Engineering</i> transfer student that is looking
-            to graduate this year. If things go well, I plan on undertaking a Master's degree in <i>Computer Engineering</i>
-            through UCSD's MS/BS program. <em>However, I am always open to professional opportunities!</em>
-            My favorite color is green.
-            <svg width="20" height="20">
-            <rect width="20" height="20" fill="green" /> 
-            </svg>
+    <title>Noah Kil's Portfolio Page</title>
+    <link href="style.css" rel="stylesheet" media="all">
+    <!--empty stylesheet for usage of link tag-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="top-of-page">
+        <header>
+          <h1>Welcome to Noah Kil's Portfolio Site! </h1>
+          <hr>
+          <nav id="links">
+            <a href="https://github.com/quantiumtech" class="nav-link">GitHub</a>
+            <a href="resume.html" class="nav-link">Resume</a>
+            <a href="https://www.linkedin.com/in/noah-kil-24635821a/" class="nav-link">LinkedIn</a>
+            <a href="#" class="nav-link">Glassdoor</a>
+            <a href="#" class="nav-link">Handshake</a>
+          </nav>
+        </header>
+      </div>
+      <div class="main-body">
+        <main>
+          <figure>
+            <picture id = "my-portrait">
+              <source media="(min-width:450px)" srcset="./sources/person1.jpg" width=500>
+              <img src="sources/filler_image.png" alt="Backup portrait of me for weird screen sizes">
+            </picture>
+            <figcaption>A picture of me! <cite>Source: thispersondoesnotexist.com</cite></figcaption>
+          </figure>
+          <section>
+            <h3> Introduction</h3>
+            <p>My name is <b>Noah Kil</b>. I am a 4th year <i>Computer Engineering</i> transfer student that is looking to graduate this year. If things go well, I plan on undertaking a Master's degree in <i>
+                Computer Engineering</i> through UCSD's MS/BS program. <em>However, I am always open to professional opportunities!</em> 
+                I enjoy a wide variety of colors! <svg id = "svg-box" width="20" height="20">
+                <rect width="20" height="20" />
+              </svg>
             </p>
             <br>
-        <aside>
-            <span class = "interests">Some of my hobbies include: </span>
-            <ul>
+            <aside>
+             <p>Some of my hobbies include:</p>
+              <ul>
                 <li>Game Development</li>
                 <li>Hanging out with friends</li>
                 <li>Gaming</li>
-            </ul>
-            <br>
-         
-            <span class = "interests">My top 3 favorite food categories are: </span>
-            <ol>
+              </ul>
+              <br>
+              <span class="interests">My top 3 favorite food categories are: </span>
+              <ol>
                 <li>Korean</li>
                 <li>Vietnamese</li>
                 <li>Italian</li>
-            </ol>
-        A favorite quote of mine is a very famous one from <b>Alan Watts</b>. Can you guess it before clicking on the answer?
-        <details>
-            <summary>One of my favorite quotes...</summary>
-            <p>"A person who thinks all the time has nothing to think about except thoughts." - Alan Watts</p>
-        </details>
-        <br>
-        This is my planned workload for the current school year:
-        <table>
-            <caption>
-                23-24 
-            </caption>
-            <colgroup>
-                <col span="2">
-            </colgroup>
-            <tr>
-                <th>Quarter</th>
-                <th>Units</th>
-            </tr>
-            <tr>
-                <td>Fall</td>
-                <td>21</td>
-            </tr>
-            <tr>
-                <td>Winter</td>
-                <td>21</td>
-            </tr>
-            <tr>
-                <td>Spring</td>
-                <td>20</td>
-            </tr>
-        </table>
-    </aside>
-    <br>
-    </section>
-</main>
-    <h2>PROJECTS</h2>
-
-<!-- The intended styling of this would be accomplished using a grid layout.
-Using <pre> as placeholder. -->
-    <button type ="button">Left</button>    <button type ="button">Right</button>
-<div id = "projects">
-<figure>
-        <img src = "sources/filler_image.png" alt="Project 1">
-        <img src = "sources/filler_image.png" alt="Project 2">
-        <img src = "sources/filler_image.png" alt="Project 3">
-    
-    <figcaption>
-        Links and short descriptions for projects go around here! Lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem
-    </figcaption>
-</figure>
-</div>
-
-<br>
-
-<h2>References</h2>
-<iframe src = "./references.html"></iframe>
-
-<br>
-<footer>
-<h2> Contact Form</h2>
-Have any specific questions? Feel free to contact me through this form!
-<form action="index.html" method="get">
-    <fieldset>
-        <legend> Your Details</legend>
-        <label for="name">Name</label>
-        <input type="text" id = "name">
-        <br>
-        <br>
-        <label for="email">Email</label>
-        <input type="email" id = "email">
-        <br>
-        <br>
-        <label for="phone">Phone</label>
-        <input type="text" id = "phone">
-        <br>
-        <br>
-        <label for="role">Role</label>
-        <input list="roles" id="role" name ="role">
-        <datalist id="roles">
-            <option value="Recruiter">
-            <option value="Colleague">
-            <option value="Instructor">
-            <option value="Other">
-        </datalist>
-        <br>
-        <label for="questions">Questions</label>
-        <br>
-        <textarea id="questions" rows="4" cols="25"></textarea>
-        <br>
-        <input type="submit" id = "submitForm">
-        <br>
-        <br>
-           
-    </fieldset>
-
-</form>
-        <br>
-        <hr>
-        <br>
-        This is the bottom of my portfolio page! Feel free to check out some <strong>demos</strong> below!
-        <br>
-        <br>
-    </footer>
-        <h2> DEMOS</h2>
-    
-        <h3>Quiz</h3>
-        Who is well known for the formula
-        <math display = "inline">
-            <mrow>
-                <mi>E</mi>
-                <mo>=</mo>
-                <mi>m</mi>
-                <msup>
-                    <mi>c</mi>
-                    <mn>2</mn>
-                </msup>
-            </mrow>
-        </math>
-        ? 
-        <form action="index.html" method="get">
-        <label for ="Physicists">Your Answer:</label>
-        <select name = "Physicists" id = "Physicists" >
-        <optgroup Label = "Physicists">
-            <option value = "1">Issac Newton</option>
-            <option value = "2">Albert Einstein</option>
-            <option value = "3">Max Planck</option>
-        </optgroup>
-        </select>
-        <input type="submit" id = "submitAnswer">
-        
-
-    </form>
-    <template>
-        <p>
-          This is hidden content in HTML! If you found this message, contact me for collaboration at nkil@ucsd.edu!
-        </p>
-      </template>
-
-
-      <h3>Canvas Tag</h3>
-      Did you know that you can write text on a canvas?
-      <br>
-      <canvas id = "demoCanvas" width = "400" height = "100" style = "border:1px solid red;"></canvas>
-          <script>
-            document.getElementById("demoCanvas").getContext("2d").font = "30px Times New Roman";
-            document.getElementById("demoCanvas").getContext("2d").strokeText("Hello World",110,60);
-          </script>
+              </ol>
+            </aside>
             <br>
-            To accomplish this, make sure you use <code>canvas</code> and <code>script</code> tag.
-       <br>
-       <h3>Audio clip</h3>
-       Below is a audio clip of a dog barking.
-       <br>
-         <audio controls>
-          <source src="sources/Barking_of_a_dog.ogg" type="audio/ogg">
-          </audio>
+          </section>
+        </main>
+      </div>
+      <div class="bottom-of-page">
+        <!-- The intended styling of this would be accomplished using a grid layout.
+Using <pre> as placeholder. -->
+        <section id = "projects">
+            <h2>PROJECTS</h2>
+            <br>
+            <button type="button" class="project-buttons left">Left</button>
+            <img src="sources/filler_image.png" alt="Project 1">
+            <button type="button" class="project-buttons right">Right</button>
+            <!-- <img src="sources/filler_image.png" alt="Project 2">
+            <img src="sources/filler_image.png" alt="Project 3"> -->
+            <!-- <figcaption> Links and short descriptions for projects go around here! Lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem </figcaption> -->
+        </section>
+        <footer>
+        <br>
+        <section id = "contact-stuff">
+        <h2>References</h2>
+        <iframe src="./references.html"></iframe>
+        <br>
+        </section>
+
+        <article id = "contact-form">
+          <h2> Contact Form</h2> 
+          Have any specific questions?
+        Feel free to contact me through this form! <form action="index.html" method="POST">
+            <fieldset>
+              <legend> Your Details</legend>
+              <label for="name">Name</label>
+              <input type="text" id="name" name="input-name">
+              <br>
+              <br>
+              <label for="email">Email</label>
+              <input type="email" id="email" name ="user-email" required>
+              <br>
+              <br>
+              <label for="phone">Phone</label>
+              <input type="text" id="phone">
+              <br>
+              <br>
+              <label for="questions">Questions</label>
+              <br>
+              <textarea id="questions" rows="4" cols="25" required></textarea>
+              <br>
+              <input type="submit" id="submitForm">
+              <br>
+              <br>
+            </fieldset>
+          </form>
+    </article>
           <br>
-          <h3>Video clip</h3>
-          Below is a video clip of some apartments.
           <br>
-          <video controls>
-            <source src="sources/sample.mp4" type="video/mp4">
-          </video>
-</body>
+        </footer>
+      </div>
+    </div>
+  </body>
