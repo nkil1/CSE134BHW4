@@ -1,3 +1,4 @@
+/* Example of nested CSS on line 66. */
 :root {
     background-color:color-mix(in srgb, #ECECEC 80%, skyblue);
     font-family: 'Segoe UI' , Arial, Helvetica, sans-serif;
@@ -61,6 +62,7 @@ aside:has(ul) {
     color:darkblue;
 }
 
+/* NESTED CSS */
 .nav-link {
     flex-grow: 1;
     flex-direction:row;
@@ -71,10 +73,11 @@ aside:has(ul) {
     color: white;
     text-decoration: double;
     transition: background-color 0.3s ease;
-}
 
-.nav-link:hover {
+
+&:hover {
     background-color: #0056b3;
+}
 }
 
 
