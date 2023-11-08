@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<!-- Extra Credit #2: Developers could not make use of MathML until very recently because popular browsers like Google Chrome simply did not support it.-->
 <html lang="en">
   <head>
-    <!-- Extra Credit #3 -->
     <meta name="description" content="This is Noah Kil's portfolio site.">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta charset="utf-8">
@@ -21,17 +19,18 @@
             <a href="https://github.com/quantiumtech" class="nav-link">GitHub</a>
             <a href="resume.html" class="nav-link">Resume</a>
             <a href="https://www.linkedin.com/in/noah-kil-24635821a/" class="nav-link">LinkedIn</a>
-            <a href="#" class="nav-link">Glassdoor</a>
+            <a href="https://www.glassdoor.com/" class="nav-link">Glassdoor</a>
             <a href="#" class="nav-link">Handshake</a>
           </nav>
         </header>
       </div>
-      <div class="main-body">
+    
         <main>
           <figure>
             <picture id = "my-portrait">
-              <source media="(min-width:450px)" srcset="./sources/person1.jpg" width=500>
-              <img src="sources/filler_image.png" alt="Backup portrait of me for weird screen sizes">
+              <source media="(min-width: 1920px)" srcset="./sources/person1resize.webp">
+              <source media="(min-width:600px)" srcset="./sources/person500px.jpg">
+              <img src="sources/person300px.jpg" alt="A portrait of me, the site creator!">
             </picture>
             <figcaption>A picture of me! <cite>Source: thispersondoesnotexist.com</cite></figcaption>
           </figure>
@@ -62,24 +61,29 @@
             <br>
           </section>
         </main>
-      </div>
+     
       <div class="bottom-of-page">
-        <!-- The intended styling of this would be accomplished using a grid layout.
-Using <pre> as placeholder. -->
+
         <section id = "projects">
             <h2>PROJECTS</h2>
             <br>
-            <button type="button" class="project-buttons left">Left</button>
-            <img src="sources/filler_image.png" alt="Project 1">
-            <button type="button" class="project-buttons right">Right</button>
-            <!-- <img src="sources/filler_image.png" alt="Project 2">
-            <img src="sources/filler_image.png" alt="Project 3"> -->
-            <!-- <figcaption> Links and short descriptions for projects go around here! Lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem </figcaption> -->
+            <button type="button" class="project-buttons left">&lt;</button>
+            <figure>
+            <picture>
+                <source media="(min-width: 1920px)" srcset="./sources/code-min.webp">
+                <source media="(min-width:600px)" srcset="./sources/code-min700px.jpg">
+                <img src="./sources/code-min300px.jpg" alt="A picture of one of my projects!">
+            </picture>
+            <figcaption><cite>Source: Jake Walker</cite></figcaption>
+            </figure>
+            <button type="button" class="project-buttons right">&gt;</button>
+           
         </section>
         <footer>
         <br>
         <section id = "contact-stuff">
         <h2>References</h2>
+        Below are a list of my current references.
         <iframe src="./references.html"></iframe>
         <br>
         </section>
@@ -114,7 +118,16 @@ Using <pre> as placeholder. -->
     </article>
           <br>
           <br>
+          <br>
         </footer>
+        <br>
+        <hr>
+        
+        <p><img src="./sources/smallsun.gif" alt="A GIF of a small sun that denotes the bottom of the webpage." loading=lazy>
+            This is the bottom of my page! <a href="#top">Click here</a> to go back to the top of the page. 
+            <img src="./sources/smallsun.gif" alt="A GIF of a small sun that denotes the bottom of the webpage." loading=lazy></p>
+            <br>
+            <hr>
       </div>
     </div>
   </body>

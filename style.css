@@ -3,12 +3,14 @@
     font-family: 'Segoe UI' , Arial, Helvetica, sans-serif;
     --border-rad-size: 10px;
     --my-favorite-color: green;
+    touch-action:auto;
 }
+
 
 .wrapper {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows:10% 30% 60%;
+    grid-template-rows:auto auto auto;
     gap: 10px;
 
 }
@@ -18,7 +20,7 @@
       transform: translateX(-100%);
     }
     to {
-      transform: translateX(0); /* Slide in to the natural position */
+      transform: translateX(0);
     }
   }
 
@@ -30,6 +32,11 @@
     border-radius: var(--border-rad-size);
     border-radius: 10px;
     align-items: flex-start;
+
+}
+
+.top-of-page:before {
+    background-image:url("./sources/trees.jpg");
 }
 
 header > h1{
@@ -50,6 +57,10 @@ header > h1{
     justify-content: center;
 }
 
+aside:has(ul) {
+    color:darkblue;
+}
+
 .nav-link {
     flex-grow: 1;
     flex-direction:row;
@@ -66,6 +77,7 @@ header > h1{
     background-color: #0056b3;
 }
 
+
 @media (max-width: 768px) {
     .wrapper {
         grid-template-columns: 1fr;
@@ -73,24 +85,67 @@ header > h1{
     }
 }
 
-@media (max-width: 480px) {
-    .wrapper {
-        grid-template-columns: 1fr;
-        grid-template-rows:10% 40% 60%;
+
+@media (max-width: 540px) {
+    figure {
+      max-width: 100%;
+      margin: 0;
     }
-}
-.main-body {
+    
+    figure img {
+      width: 100%;
+      height: auto;
+    }
+  
+  
+    .main > section {
+      clear: both; 
+    }
+    
+
+    .mainy {
+      padding: 10px; 
+    }
+  
+
+    #links {
+      display: block;
+    }
+    
+    .nav-link {
+      display: block; 
+      margin-bottom: 10px; 
+      padding: 10px 0;
+    }
+    
+
+    .wrapper {
+        grid-template-rows: 20% 40% 60%;
+    }
+  }
+
+main {
     grid-row: 2;
     display:flex;
+    align-items:center;
+    justify-content:center;
+
 }
 
-.main-body  h3 {
+
+@media (max-width: 768px) {
+    main {
+      flex-direction: column; 
+    }
+  }
+
+  main  h3 {
     color: hsla(194, 100%, 58%, 0.747)
 }
-.main-body img {
+main img {
     min-width: 300px;
 }
-.main-body main {
+mainmain {
     display:flex;
  
     margin-right:20px;
@@ -126,9 +181,13 @@ font-size:2rem;
 }
 #projects  img {
   width: 100%; 
-  max-width: 40dvh; 
-  margin: 0 auto;
+  max-width: 40dvh;
+  min-width: 10dvw; 
+  margin: auto;
+  object-position: center;
+  object-fit:contain;
 }
+
 
 @media (max-width: 768px) {
     #projects img {
@@ -138,36 +197,51 @@ font-size:2rem;
     }
 
     .project-buttons {
-        width: 40px; /* Adjust the width of buttons */
-        height: 40px; /* Adjust the height of buttons */
-        font-size: 12px; /* Adjust font size if needed */
-        /* Other styling adjustments */
+        width: 40px;
+        height: 40px; 
+        font-size: 12px; 
+       
       }
     
       .project-buttons.left {
-        left: 5px; /* Adjust to ensure it doesn't touch the screen edge */
+        left: 5px; 
       }
     
       .project-buttons.right {
-        right: 5px; /* Adjust to ensure it doesn't touch the screen edge */
+        right: 5px;
       }
 }
+
 
 .project-buttons {
   position: absolute; 
   transform: translateY(-50%);
-  
+  flex-grow: 1;
+  flex-direction: row;
+  text-align: center;
+  border-radius: var(--border-rad-size);
+  border-radius: 10px;
+  padding: 1em;
+  background-color: #007bff;
+  color: white;
+  text-decoration: double;
+  transition: background-color 0.3s ease;
 }
-/* Additional styles specific to the left and right buttons */
+
+.project-buttons:hover {
+    background-color: var(--my-favorite-color);
+    background-color: green;
+}
+
 .project-buttons.left {
-  left: 10px; /* Position to the left */
+  left: 10px; 
 }
 
 .project-buttons.right {
-  right: 10px; /* Position to the right */
+  right: 10px; 
 }
 
-footer {
+footer { 
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -182,12 +256,12 @@ footer > * {
 
 
 iframe {
-    width: 100%; /* Full width of its parent's flex-basis */
-    height: 300px; /* Adjust the height as needed */
+    width: 100%;
+    height: 300px;
   }
   
   form {
-    width: 100%; /* Full width of its parent's flex-basis */
+    width: 100%;
   }
   
   @media (max-width: 768px) {
@@ -196,7 +270,10 @@ iframe {
     }
   
     #contact-stuff > * {
-      flex-basis: 100%; /* Each child takes full width on small screens */
+      flex-basis: 100%;
     }
   }
 
+  p:has(img) {
+    text-align:center;
+  }
