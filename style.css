@@ -189,30 +189,6 @@ font-size:2rem;
 }
 
 
-@media (max-width: 768px) {
-    #projects img {
-        width: 100%;
-        max-width: 300px;
-        margin: 0 auto;
-    }
-
-    .project-buttons {
-        width: 40px;
-        height: 40px; 
-        font-size: 12px; 
-       
-      }
-    
-      .project-buttons.left {
-        left: 5px; 
-      }
-    
-      .project-buttons.right {
-        right: 5px;
-      }
-}
-
-
 .project-buttons {
   position: absolute; 
   transform: translateY(-50%);
@@ -239,6 +215,28 @@ font-size:2rem;
 
 .project-buttons.right {
   right: 10px; 
+}
+
+@media (max-width: 768px) {
+    #projects img {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .project-buttons {
+        width: 40px;
+        height: 40px; 
+        font-size: 12px; 
+      }
+    
+      .project-buttons.left {
+        left: 5px; 
+      }
+    
+      .project-buttons.right {
+        right: 5px;
+      }
 }
 
 footer { 
