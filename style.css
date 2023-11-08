@@ -36,10 +36,6 @@
 
 }
 
-.top-of-page:before {
-    background-image:url("./sources/trees.jpg");
-}
-
 header > h1{
     text-align: center;
     transform: translateX(-100%);
@@ -149,7 +145,7 @@ main img {
     object-position:left;
     object-fit:contain;
 }
-mainmain {
+main {
     display:flex;
  
     margin-right:20px;
