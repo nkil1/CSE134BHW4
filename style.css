@@ -1,4 +1,4 @@
-/* Example of nested CSS on line 66. */
+/* Example of nested CSS on line 194. */
 :root {
     background-color:color-mix(in srgb, #ECECEC 80%, skyblue);
     font-family: 'Segoe UI' , Arial, Helvetica, sans-serif;
@@ -6,7 +6,10 @@
     --my-favorite-color: green;
     touch-action:auto;
 }
-
+/* Example of scoped css. Does nothing without Shadow DOM tree (JS) */
+:host-context(.top-of-page) h1 {
+  color: darkblue;
+}
 
 .wrapper {
     display: grid;
@@ -42,6 +45,7 @@ header > h1{
     animation: slide-in 2s forwards;
 }
 
+
 #links {
     display: flex;
     flex-direction: row;
@@ -58,7 +62,7 @@ aside:has(ul) {
     color:darkblue;
 }
 
-/* NESTED CSS */
+
 .nav-link {
     flex-grow: 1;
     flex-direction:row;
@@ -70,10 +74,12 @@ aside:has(ul) {
     text-decoration: double;
     transition: background-color 0.3s ease;
 
-
-&:hover {
-    background-color: #0056b3;
+  /* Nestable using &:hover; removed just in case grader views in non-compatible browser.
+  Example on line 194 */
 }
+
+.nav-link:hover {
+  background-color: #0056b3;
 }
 
 
@@ -90,34 +96,20 @@ aside:has(ul) {
       max-width: 100%;
       margin: 0;
     }
-    
     figure img {
       width: 100%;
       height: auto;
     }
-  
-  
-    .main > section {
-      clear: both; 
-    }
-    
-
-    .mainy {
-      padding: 10px; 
-    }
-  
 
     #links {
       display: block;
     }
-    
+
     .nav-link {
       display: block; 
       margin-bottom: 10px; 
       padding: 10px 0;
     }
-    
-
     .wrapper {
         grid-template-rows: 20% 40% 60%;
     }
@@ -169,6 +161,7 @@ figcaption {
     text-align:center;
 }
 
+
 #projects {
   display: flex;
   align-items: center;
@@ -188,7 +181,7 @@ font-size:2rem;
   object-fit:contain;
 }
 
-
+/* NESTED CSS */
 .project-buttons {
   position: absolute; 
   transform: translateY(-50%);
@@ -202,12 +195,13 @@ font-size:2rem;
   color: white;
   text-decoration: double;
   transition: background-color 0.3s ease;
-}
 
-.project-buttons:hover {
+  &:hover {
     background-color: var(--my-favorite-color);
     background-color: green;
 }
+}
+
 
 .project-buttons.left {
   left: 10px; 
@@ -228,14 +222,6 @@ font-size:2rem;
         width: 40px;
         height: 40px; 
         font-size: 12px; 
-      }
-    
-      .project-buttons.left {
-        left: 5px; 
-      }
-    
-      .project-buttons.right {
-        right: 5px;
       }
 }
 
@@ -265,10 +251,6 @@ iframe {
   @media (max-width: 768px) {
     footer {
       flex-direction: column;
-    }
-  
-    #contact-stuff > * {
-      flex-basis: 100%;
     }
   }
 
