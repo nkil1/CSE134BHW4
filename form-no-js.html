@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noah Kil's Portfolio Contact Form</title>
+    <link href="style.css" rel="stylesheet" media="all">
+</head>
+<body>
+    <form action="https://httpbin.org/post" method="post" class="form-container" novalidate>
+        <label for="name">Name (required)</label>
+        <input type="text" id="name" name="user-name" required>
+
+        <label for="email">Email (required)</label>
+        <input type="email" id="email" name="user-email" required>
+
+        <label for="questions">Comments (required, no special characters)</label>
+        <textarea id="questions" name="user-questions" required minlength="10" maxlength="500" 
+                  pattern="^[A-Za-z0-9 .,!?']+$"></textarea>
+
+        <input type="hidden" name="possible_bot" value="true">
+
+        <input type="submit" id="submitForm">
+    </form>
+</body>
+</html>

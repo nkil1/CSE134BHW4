@@ -90,24 +90,28 @@
         <article id = "contact-form">
           <h2> Contact Form</h2> 
           Have any specific questions?
-        Feel free to contact me through this form! <form action="index.html" method="get">
+        Feel free to contact me through this form! 
+        <form action="https://httpbin.org/post" method="post" id = "form-container">
             <fieldset>
               <legend> Your Details</legend>
               <label for="name">Name</label>
-              <input type="text" id="name" name="input-name">
+              <input type="text" id="name" name="user-name" required>
+              <output name="nameError" class="error-message">error-msg-if-any</output>
+              <output name="nameInfo" class="info-message"> info-msg-if-any</output>
               <br>
               <br>
               <label for="email">Email</label>
               <input type="email" id="email" name ="user-email" required>
-              <br>
-              <br>
-              <label for="phone">Phone</label>
-              <input type="text" id="phone">
+              <output name="emailError" class="error-message">error-msg-if-any</output>
+              <output name="emailInfo" class="info-message">info-msg-if-any</output>
               <br>
               <br>
               <label for="questions">Questions</label>
               <br>
-              <textarea id="questions" rows="4" cols="25" required></textarea>
+              <textarea id="questions" rows="4" cols="25" name = "user-questions" required></textarea>
+              <output name="questionsError" class="error-message">error-msg-if-any</output>
+            <output name="questionsInfo" class="info-message">info-msg-if-any</output>
+              <input type="hidden" name="possible_bot" value="true">
               <br>
               <input type="submit" id="submitForm">
               <br>
