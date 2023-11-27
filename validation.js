@@ -2,7 +2,7 @@ let form_errors = [];
 
 const nameInput = document.getElementById('name');
 const emailInput = document.getElementById('email');
-const questionsInput = document.getElementById('questions');
+const commentsInput = document.getElementById('comments');
 const re = /^[A-Za-z0-9 .,!?@']+$/;
 
 function _pushError(type, errorMsg) {
@@ -39,7 +39,7 @@ function _invalidInput(inputField, errorID) {
 function _lengthCheck(inputField, limit) {
     console.log('length checking');
     const remaining = limit - inputField.value.length;
-    const infoElement = document.getElementById('questionsInfo')
+    const infoElement = document.getElementById('commentsInfo')
 
     if (remaining <= 10) {
         infoElement.classList.remove('info-message', 'warn-message');
@@ -60,7 +60,7 @@ function _lengthCheck(inputField, limit) {
 let lastValid = {
     name: nameInput.value,
     email: emailInput.value,
-    questions: questionsInput.value
+    comments: commentsInput.value
 };
 
 function handleInput(inputField, fieldName) {
@@ -74,15 +74,15 @@ function handleInput(inputField, fieldName) {
 
 nameInput.addEventListener('input', () => handleInput(nameInput, 'name'));
 emailInput.addEventListener('input', () => handleInput(emailInput, 'email'));
-questionsInput.addEventListener('input', () => {
-    handleInput(questionsInput, 'questions');
-    _lengthCheck(questionsInput, 250);
+commentsInput.addEventListener('input', () => {
+    handleInput(commentsInput, 'comments');
+    _lengthCheck(commentsInput, 250);
 });
 
-_lengthCheck(questionsInput, 250); // Initial check
+_lengthCheck(commentsInput, 250); // Initial check
 
 
-[nameInput, emailInput, questionsInput].forEach(function(inputField) {
+[nameInput, emailInput, commentsInput].forEach(function(inputField) {
     inputField.addEventListener('input', function(event) {
         let value = inputField.value;
         let lastChar = value.charAt(value.length - 1);
@@ -105,7 +105,7 @@ _lengthCheck(questionsInput, 250); // Initial check
 
         document.getElementById('nameError').textContent = '';
         document.getElementById('emailError').textContent = '';
-        document.getElementById('questionsError').textContent = '';
+        document.getElementById('commentsError').textContent = '';
 
         if (!nameInput.checkValidity()) {
             _pushError(nameInput, 'Please enter your name.')
@@ -119,9 +119,9 @@ _lengthCheck(questionsInput, 250); // Initial check
             isValid = false;
         }
 
-        if (questionsInput.value.length < 10 || questionsInput.value.length > 250) {
-            _pushError(questionsInput, 'Please enter between 10 and 250 characters for comments.')
-            document.getElementById('questionsError').textContent = 'Please enter between 10 and 250 characters for comments.';
+        if (commentsInput.value.length < 10 || commentsInput.value.length > 250) {
+            _pushError(commentsInput, 'Please enter between 10 and 250 characters for comments.')
+            document.getElementById('commentsError').textContent = 'Please enter between 10 and 250 characters for comments.';
             isValid = false;
         } 
 

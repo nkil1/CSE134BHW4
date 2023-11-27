@@ -89,7 +89,7 @@
 
         <article id = "contact-form">
           <h2> Contact Form</h2> 
-          Have any specific questions?
+          Have any specific comments?
         Feel free to contact me through this form! 
         <form action="https://httpbin.org/post" method="post" id = "form-container" novalidate> 
             <fieldset>
@@ -106,11 +106,11 @@
               <output name="emailInfo" class="info-message"></output>
               <br>
               <br>
-              <label for="questions">Questions</label>
+              <label for="comments">Comments</label>
               <br>
-              <textarea id="questions" rows="4" cols="25" name = "user-questions" required></textarea>
-              <output name="questionsError" class="error-message" id="questionsError"></output>
-            <output name="questionsInfo" class="info-message" id = "questionsInfo"></output>
+              <textarea id="comments" rows="4" cols="25" name = "user-comments" required></textarea>
+              <output name="commentsError" class="error-message" id="commentsError"></output>
+            <output name="commentsInfo" class="info-message" id = "commentsInfo"></output>
               <input type="hidden" name="possible_bot" value="true">
               <br>
               <input type="submit" id="submitForm">
