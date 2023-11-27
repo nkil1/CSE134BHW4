@@ -91,26 +91,26 @@
           <h2> Contact Form</h2> 
           Have any specific questions?
         Feel free to contact me through this form! 
-        <form action="https://httpbin.org/post" method="post" id = "form-container">
+        <form action="https://httpbin.org/post" method="post" id = "form-container" novalidate> 
             <fieldset>
               <legend> Your Details</legend>
               <label for="name">Name</label>
               <input type="text" id="name" name="user-name" required>
-              <output name="nameError" class="error-message">error-msg-if-any</output>
-              <output name="nameInfo" class="info-message"> info-msg-if-any</output>
+              <output name="nameError" class="error-message" id="nameError"></output>
+              <output name="nameInfo" class="info-message"></output>
               <br>
               <br>
               <label for="email">Email</label>
               <input type="email" id="email" name ="user-email" required>
-              <output name="emailError" class="error-message">error-msg-if-any</output>
-              <output name="emailInfo" class="info-message">info-msg-if-any</output>
+              <output name="emailError" class="error-message" id="emailError"></output>
+              <output name="emailInfo" class="info-message"></output>
               <br>
               <br>
               <label for="questions">Questions</label>
               <br>
               <textarea id="questions" rows="4" cols="25" name = "user-questions" required></textarea>
-              <output name="questionsError" class="error-message">error-msg-if-any</output>
-            <output name="questionsInfo" class="info-message">info-msg-if-any</output>
+              <output name="questionsError" class="error-message" id="questionsError"></output>
+            <output name="questionsInfo" class="info-message"></output>
               <input type="hidden" name="possible_bot" value="true">
               <br>
               <input type="submit" id="submitForm">
@@ -131,6 +131,9 @@
             <img src="./sources/smallsun.gif" alt="A GIF of a small sun that denotes the bottom of the webpage." loading=lazy></p>
             <br>
             <hr>
+            <h4>special link for HW4: </h4> <a href="./form-no-js.html">form-no-js</a>
       </div>
     </div>
+
+    <script src ="./validation.js"></script>
   </body>
