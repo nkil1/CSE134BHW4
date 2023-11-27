@@ -3,14 +3,52 @@ function _invalidInput(inputField, errorID) {
     document.getElementById(errorID).textContent = 'Illegal character detected.';
     setTimeout(() => {
         inputField.classList.remove('flash');
+        inputField.classList.add('flash.transition-to-white')
+    }, 300);
+
+    setTimeout(() => {
+        inputField.classList.remove('flash.transition-to-white');
+    }, 600);
+
+    setTimeout(() => {
+        inputField.classList.remove('flash.transition-to-white');
         document.getElementById(errorID).textContent = '';
-    }, 3000);
+    }, 2200);
 }
+
 
 const nameInput = document.getElementById('name');
 const emailInput = document.getElementById('email');
 const questionsInput = document.getElementById('questions');
 const re = /^[A-Za-z0-9 .,!?']+$/;
+
+
+
+function _lengthCheck(inputField, limit) {
+    console.log('length checking');
+    const remaining = limit - inputField.value.length;
+    const infoElement = document.getElementById('questionsInfo')
+
+    if (remaining <= 10) {
+        infoElement.classList.remove('info-message', 'warn-message');
+        infoElement.classList.add('error-message');
+    } else if (remaining <= 50) {
+        infoElement.classList.remove('info-message', 'error-message');
+        infoElement.classList.add('warn-message');
+    } else {
+        infoElement.classList.remove('error-message', 'warn-message');
+        infoElement.classList.add('info-message');
+    }
+
+    infoElement.textContent = remaining + ' characters remaining.';
+
+}
+
+questionsInput.addEventListener('input', function() {
+    _lengthCheck(questionsInput, 250);
+});
+
+    _lengthCheck(questionsInput, 250);
 
 [nameInput, emailInput, questionsInput].forEach(function(inputField) {
     inputField.addEventListener('input', function(event) {
@@ -21,6 +59,8 @@ const re = /^[A-Za-z0-9 .,!?']+$/;
         if (!re.test(lastChar) && value.length > 0) {
             _invalidInput(inputField, inputField.id + 'Error');
             // Remove the last character
+            inputField.value = value.substring(0, value.length - 1);
+        } else if (inputField.value.length >= 250) {
             inputField.value = value.substring(0, value.length - 1);
         }
     });
@@ -45,13 +85,10 @@ const re = /^[A-Za-z0-9 .,!?']+$/;
             isValid = false;
         }
 
-        if (questionsInput.value.length < 10 || questionsInput.value.length > 500) {
-            document.getElementById('questionsError').textContent = 'Please enter between 10 and 500 characters for comments.';
+        if (questionsInput.value.length < 10 || questionsInput.value.length > 250) {
+            document.getElementById('questionsError').textContent = 'Please enter between 10 and 250 characters for comments.';
             isValid = false;
-        } else if (!re.test(questionsInput.value)) {
-            document.getElementById('questionsError').textContent = 'Please only use alphanumeric characters and basic punctuation.'
-            isValid = false;
-        }
+        } 
 
         if (!isValid) {
             event.preventDefault();
