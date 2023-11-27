@@ -17,14 +17,6 @@
   background-color: transparent;
 }
 
-.warn-message {
-  color: orange;
-}
-
-.error-message {
-  color: red;
-}
-
 .error-message  {
     transition: opacity 3s ease-in-out;
     opacity: 1;
@@ -295,6 +287,14 @@ input[type="submit"] {
 .info-message {
   display: inline-block;
   color: green;
+}
+
+.warn-message {
+  color: orange;
+}
+
+.error-message {
+  color: red;
 }
 
 iframe {
