@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noah Kil's Portfolio Contact Form</title>
+    <title>Form validation with no JS demo</title>
     <link href="style.css" rel="stylesheet" media="all">
 </head>
 <body>
@@ -27,9 +27,9 @@
               <br>
               <label for="comments">Comments</label>
               <br>
-              <input type = "text" id="comments" name = "user-comments" minlength ="10" maxlength="250" required>
+              <input type = "text" id="comments" name = "user-comments" minlength ="10" maxlength="250" pattern="^[A-Za-z0-9 .,!?']+$" required>
               <output name="commentsError" class="error-message" id="commentsError">Error</output>
-            <output name="commentsInfo" class="info-message" id = "commentsInfo">Info</output>
+              <output name="commentsInfo" class="info-message" id = "commentsInfo">Info</output>
               <input type="hidden" name="possible_bot" value="true">
               <br>
               <input type="submit" id="submitForm">
