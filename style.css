@@ -387,9 +387,9 @@ input[name="user-comment"] {
   margin: 0 auto 0 0 ;
 }
 
-.no-js-form label[for="name"]::after, 
-.no-js-form label[for="email"]::after, 
-.no-js-form label[for="comments"]::after {
+label[for="name"]::after, 
+label[for="email"]::after, 
+label[for="comments"]::after {
   content: " *";
   color: red;
 }
