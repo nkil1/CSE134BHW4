@@ -19,10 +19,11 @@ const emailInput = document.getElementById('email');
 const commentsInput = document.getElementById('comments');
 const re = /^[A-Za-z0-9 .,!?@']+$/;
 
-function _pushError(type, errorMsg) {
+function _pushError(inputField, errorMsg) {
     form_errors.push({
-        field: type.id,
-        error: errorMsg
+        field: inputField.id,
+        error: errorMsg,
+        value: inputField.value
     });
 
 }
@@ -47,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function _invalidInput(inputField, errorID) {
     
-    _pushError(inputField, 'Illegal character detected.')
+    // _pushError(inputField, 'Illegal character detected.')
 
 
     inputField.classList.add('flash');
@@ -108,6 +109,9 @@ function handleInput(inputField, fieldName) {
     if (inputField.value.length <= 0 ||re.test(inputField.value)) {
         lastValid[fieldName] = inputField.value; 
     } else {
+        // if (inputField.value !== lastValid[fieldName]) {
+        //     _pushError(inputField, 'Illegal character detected.');
+        // }
         _invalidInput(inputField, inputField.id + 'Error');
         inputField.value = lastValid[fieldName]; 
     }
@@ -139,7 +143,12 @@ _lengthCheck(commentsInput, 250); // Initial check
     });
 });
 
+let formSubmitted = false;
+
     document.getElementById('form-container').addEventListener('submit', function(event) {
+        event.preventDefault();
+        form_errors = [];
+        
         let isValid = true;
 
         document.getElementById('nameError').textContent = '';
@@ -163,13 +172,18 @@ _lengthCheck(commentsInput, 250); // Initial check
             document.getElementById('commentsError').textContent = 'Please enter between 10 and 250 characters for comments.';
             isValid = false;
         } 
-
-        if (!isValid) {
-            event.preventDefault();
+            
+        if (!formSubmitted || form_errors.length > 0) {
             const errorInput = document.createElement('input');
             errorInput.type = 'hidden';
             errorInput.name = 'form_errors';
             errorInput.value = JSON.stringify(form_errors);
             this.appendChild(errorInput);
         }
+    
+        formSubmitted = true;
+        
+            if(isValid) {
+                this.submit();
+            }
     });
