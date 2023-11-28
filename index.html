@@ -112,19 +112,19 @@
         <form action="https://httpbin.org/post" method="post" id = "form-container"> 
             <fieldset>
               <legend> Your Details</legend>
-              <label for="name">Name</label>
+              <label for="name">Name (alphanumerics & basic punctuation only)</label>
               <input type="text" id="name" name="user-name" required>
               <output name="nameError" class="error-message" id="nameError"></output>
               <output name="nameInfo" class="info-message"></output>
               <br>
               <br>
-              <label for="email">Email</label>
+              <label for="email">Email (alphanumerics & basic punctuation only)</label>
               <input type="email" id="email" name ="user-email" required>
               <output name="emailError" class="error-message" id="emailError"></output>
               <output name="emailInfo" class="info-message"></output>
               <br>
               <br>
-              <label for="comments">Comments (250 chars max, alphanumerics & basic punctuation only)</label>
+              <label for="comments">Comments (250 chars max)</label>
               <br>
               <textarea id="comments" rows="4" cols="25" name = "user-comments" minlength ="10" maxlength="250" required></textarea>
               <output name="commentsError" class="error-message" id="commentsError"></output>
