@@ -382,9 +382,14 @@ input[name="user-comment"] {
   height: 100%;
   overflow-x: auto;
 }
+#form-container.no-js-form {
+  width: 70%;
+  margin: 0 auto 0 0 ;
+}
+
 .no-js-form label[for="name"]::after, 
 .no-js-form label[for="email"]::after, 
-.no-js-form label[for="comment"]::after {
+.no-js-form label[for="comments"]::after {
   content: " *";
   color: red;
 }

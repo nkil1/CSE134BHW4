@@ -89,18 +89,15 @@ function _lengthCheck(inputField, limit) {
 }
 
 commentsInput.addEventListener('paste', function(event) {
-    // Use setTimeout to allow the paste content to be processed
     setTimeout(() => {
-        // Truncate the content if it exceeds the limit
         if (this.value.length > 250) {
             this.value = this.value.substr(0, 250);
         }
-        // Call _lengthCheck to update the character count display
+
         _lengthCheck(this, 250);
     }, 0);
 });
 
-// Store the last valid value of each input
 let lastValid = {
     name: nameInput.value,
     email: emailInput.value,
@@ -109,10 +106,10 @@ let lastValid = {
 
 function handleInput(inputField, fieldName) {
     if (inputField.value.length <= 0 ||re.test(inputField.value)) {
-        lastValid[fieldName] = inputField.value; // Update the last valid value
+        lastValid[fieldName] = inputField.value; 
     } else {
         _invalidInput(inputField, inputField.id + 'Error');
-        inputField.value = lastValid[fieldName]; // Revert to the last valid value
+        inputField.value = lastValid[fieldName]; 
     }
 }
 
@@ -131,10 +128,10 @@ _lengthCheck(commentsInput, 250); // Initial check
         let value = inputField.value;
         let lastChar = value.charAt(value.length - 1);
 
-        // Check if the last character matches the pattern
+       
         if (!re.test(lastChar) && value.length > 0) {
             _invalidInput(inputField, inputField.id + 'Error');
-            // Remove the last character
+          
             inputField.value = value.substring(0, value.length - 1);
         } else if (inputField.value.length >= 250) {
             inputField.value = value.substring(0, 250);

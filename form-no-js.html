@@ -7,20 +7,36 @@
     <link href="style.css" rel="stylesheet" media="all">
 </head>
 <body>
-    <form action="https://httpbin.org/post" method="post" class="no-js-form">
-        <label for="name">Name (required)</label>
-        <input type="text" id="name" name="user-name" required>
-
-        <label for="email">Email (required)</label>
-        <input type="email" id="email" name="user-email" required>
-
-        <label for="questions">Comments (required, no special characters)</label>
-        <textarea id="questions" name="user-questions" required minlength="10" maxlength="500" 
-                  pattern="^[A-Za-z0-9 .,!?']+$"></textarea>
-
-        <input type="hidden" name="possible_bot" value="true">
-
-        <input type="submit" id="submitForm">
-    </form>
+    <h2> Contact Form</h2> 
+    Have any specific comments?
+  Feel free to contact me through this form! 
+     <form action="https://httpbin.org/post" method="post" id = "form-container" class = "no-js-form"> 
+            <fieldset>
+              <legend> Your Details</legend>
+              <label for="name">Name</label>
+              <input type="text" id="name" name="user-name" required>
+              <output name="nameError" class="error-message" id="nameError">Error</output>
+              <output name="nameInfo" class="info-message">Info</output>
+              <br>
+              <br>
+              <label for="email">Email</label>
+              <input type="email" id="email" name ="user-email" required>
+              <output name="emailError" class="error-message" id="emailError">Error</output>
+              <output name="emailInfo" class="info-message">Info</output>
+              <br>
+              <br>
+              <label for="comments">Comments</label>
+              <br>
+              <input type = "text" id="comments" rows="4" cols="25" name = "user-comments" minlength ="10" maxlength="250" required></textarea>
+              <output name="commentsError" class="error-message" id="commentsError">Error</output>
+            <output name="commentsInfo" class="info-message" id = "commentsInfo">Info</output>
+              <input type="hidden" name="possible_bot" value="true">
+              <br>
+              <input type="submit" id="submitForm">
+              <br>
+              <br>
+              <span style=color:red>* </span>- required
+            </fieldset>
+          </form>
 </body>
 </html>
