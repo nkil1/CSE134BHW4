@@ -1,3 +1,17 @@
+document.getElementById('mode-switch').addEventListener('change', function() {
+    var mode = this.checked ? 'dark' : 'light';
+    document.getElementById('my-references').contentWindow.postMessage(mode, '*'); 
+
+    if(this.checked) {
+      document.body.classList.add('dark-mode');
+      localStorage.setItem('darkMode', 'enabled');
+    } else {
+      document.body.classList.remove('dark-mode');
+      localStorage.setItem('darkMode', 'disabled');
+    }
+  });
+
+
 let form_errors = [];
 
 const nameInput = document.getElementById('name');
@@ -12,6 +26,24 @@ function _pushError(type, errorMsg) {
     });
 
 }
+
+
+// for noscript
+document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('form-container');
+    if (form) {
+        form.setAttribute('novalidate', '');
+    }
+
+    if(localStorage.getItem('darkMode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+        document.getElementById('mode-switch').checked = true;
+    }
+
+    document.body.classList.add('js-enabled');
+});
+
+
 
 function _invalidInput(inputField, errorID) {
     
@@ -37,14 +69,14 @@ function _invalidInput(inputField, errorID) {
 
 
 function _lengthCheck(inputField, limit) {
-    console.log('length checking');
+
     const remaining = limit - inputField.value.length;
     const infoElement = document.getElementById('commentsInfo')
 
-    if (remaining <= 10) {
+    if (remaining <= 20) {
         infoElement.classList.remove('info-message', 'warn-message');
         infoElement.classList.add('error-message');
-    } else if (remaining <= 50) {
+    } else if (remaining <= 75) {
         infoElement.classList.remove('info-message', 'error-message');
         infoElement.classList.add('warn-message');
     } else {
@@ -55,6 +87,18 @@ function _lengthCheck(inputField, limit) {
     infoElement.textContent = remaining + ' characters remaining.';
 
 }
+
+commentsInput.addEventListener('paste', function(event) {
+    // Use setTimeout to allow the paste content to be processed
+    setTimeout(() => {
+        // Truncate the content if it exceeds the limit
+        if (this.value.length > 250) {
+            this.value = this.value.substr(0, 250);
+        }
+        // Call _lengthCheck to update the character count display
+        _lengthCheck(this, 250);
+    }, 0);
+});
 
 // Store the last valid value of each input
 let lastValid = {
@@ -93,15 +137,13 @@ _lengthCheck(commentsInput, 250); // Initial check
             // Remove the last character
             inputField.value = value.substring(0, value.length - 1);
         } else if (inputField.value.length >= 250) {
-            inputField.value = value.substring(0, value.length - 1);
+            inputField.value = value.substring(0, 250);
         }
     });
 });
 
     document.getElementById('form-container').addEventListener('submit', function(event) {
         let isValid = true;
-        console.log('Submit event triggered');
-
 
         document.getElementById('nameError').textContent = '';
         document.getElementById('emailError').textContent = '';

@@ -4,9 +4,9 @@
     <meta name="description" content="This is Noah Kil's portfolio site.">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta charset="utf-8">
-    
     <title>Noah Kil's Portfolio Page</title>
-    <link href="style.css" rel="stylesheet" media="all">   
+    <link href="style.css" rel="stylesheet" media="all"> 
+    
   </head>
   <body>
     <div class="wrapper">
@@ -25,6 +25,8 @@
       </div>
     
         <main>
+
+
           <figure>
             <picture id = "my-portrait">
               <source media="(min-width: 1920px)" srcset="./sources/person1resize.webp">
@@ -34,7 +36,22 @@
             <figcaption>A picture of me! <cite>Source: thispersondoesnotexist.com</cite></figcaption>
           </figure>
           <section>
-            <h3> Introduction</h3>
+
+            Dark mode toggle 
+            <br>
+            <input type="checkbox" id="mode-switch" class="mode-toggle-checkbox">
+            
+            <label for="mode-switch" class="mode-toggle-label">
+              <img src="sources/sun.png" alt="Light Mode" class="mode-icon">
+              <img src="sources/moon.png" alt="Dark Mode" class="mode-icon">
+            
+            </label>
+            <noscript>
+              JavaScript is disabled! Dark mode toggle is disabled.
+  
+          </noscript>
+            <h3> Introduction</h3> 
+
             <p>My name is <b>Noah Kil</b>. I am a 4th year <i>Computer Engineering</i> transfer student that is looking to graduate this year. If things go well, I plan on undertaking a Master's degree in <i>
                 Computer Engineering</i> through UCSD's MS/BS program. <em>However, I am always open to professional opportunities!</em> 
                 I enjoy a wide variety of colors! <svg id = "svg-box" width="20" height="20">
@@ -83,7 +100,7 @@
         <section id = "contact-stuff">
         <h2>References</h2>
         Below are a list of my current references.
-        <iframe src="./references.html"></iframe>
+        <iframe src="./references.html" id="my-references"></iframe>
         <br>
         </section>
 
@@ -91,7 +108,7 @@
           <h2> Contact Form</h2> 
           Have any specific comments?
         Feel free to contact me through this form! 
-        <form action="https://httpbin.org/post" method="post" id = "form-container" novalidate> 
+        <form action="https://httpbin.org/post" method="post" id = "form-container"> 
             <fieldset>
               <legend> Your Details</legend>
               <label for="name">Name</label>
@@ -108,7 +125,7 @@
               <br>
               <label for="comments">Comments</label>
               <br>
-              <textarea id="comments" rows="4" cols="25" name = "user-comments" required></textarea>
+              <textarea id="comments" rows="4" cols="25" name = "user-comments" minlength ="10" maxlength="250" required></textarea>
               <output name="commentsError" class="error-message" id="commentsError"></output>
             <output name="commentsInfo" class="info-message" id = "commentsInfo"></output>
               <input type="hidden" name="possible_bot" value="true">

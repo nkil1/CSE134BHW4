@@ -1,12 +1,69 @@
 /* Example of nested CSS on line 194. */
 :root {
-  background-color:color-mix(in srgb, #ECECEC 80%, skyblue);
   font-family: 'Segoe UI' , Arial, Helvetica, sans-serif;
+  --primary-bg: color-mix(in srgb, #ECECEC 80%, skyblue);
+  --primary-text: #000000;
+  --dark-bg: #15292B;
+  --dark-text: #F5F5F5;
   --border-rad-size: 10px;
   --my-favorite-color: green;
   touch-action:auto;
 }
 
+.no-js-hidden {
+  display: none;
+}
+
+.mode-toggle-label {
+  display: none;
+}
+
+.js-enabled .mode-toggle-label {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 60px; 
+  height: 30px;
+  background-color: skyblue;
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+
+.mode-toggle-checkbox {
+  display: none;
+}
+
+
+
+.mode-toggle-label .mode-icon {
+  width: 20px; 
+  height: 20px; 
+  padding: 5px;
+  transition: opacity 0.3s ease;
+}
+
+.mode-toggle-checkbox:checked + .mode-toggle-label {
+  background-color: grey;
+}
+
+/* Toggle the visibility of the icons based on the checkbox state */
+.mode-toggle-checkbox:checked + .mode-toggle-label .mode-icon:first-child {
+  opacity: 0;
+}
+.mode-toggle-checkbox:not(:checked) + .mode-toggle-label .mode-icon:last-child {
+  opacity: 0;
+}
+
+body {
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
+}
+
+body.dark-mode {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
 
 .flash {
   background-color: red;
@@ -78,8 +135,13 @@ header > h1{
   justify-content: center;
 }
 
-aside:has(ul) {
-  color:darkblue;
+
+a {
+  color:green;
+}
+
+#links a {
+  color: white;
 }
 
 
@@ -326,4 +388,3 @@ input[name="user-comment"] {
   content: " *";
   color: red;
 }
-

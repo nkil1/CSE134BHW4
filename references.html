@@ -3,11 +3,17 @@
     <head> 
         <meta charset="utf-8">
         <title>Noah Kil's References page</title>
+
+        <style>
+            .dark-mode {
+            background-color: #15292B;
+            color: #FFFFFF;
+    }
+        </style>
     </head>
 
     <body>
 
-        <main>
 <h3>My current references are:</h3>
             <b>John Doe</b>
             <br>
@@ -15,5 +21,29 @@
             <br>
             <b>Johnathan Doe</b>
 
-        </main>
+
+            <script>
+              function applyDarkModePreference() {
+                  const darkModeEnabled = localStorage.getItem('darkMode') === 'enabled';
+                  if (darkModeEnabled) {
+                      document.body.classList.add('dark-mode');
+                  } else {
+                      document.body.classList.remove('dark-mode');
+                  }
+              }
+          
+              window.addEventListener('message', function(event) {
+                  if (event.data === 'dark') {
+                      document.body.classList.add('dark-mode');
+                      localStorage.setItem('darkMode', 'enabled');
+                  } else if (event.data === 'light') {
+                      document.body.classList.remove('dark-mode');
+                      localStorage.setItem('darkMode', 'disabled');
+                  }
+              });
+        
+              applyDarkModePreference();
+          </script>
     </body>
+
+</html>
