@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-
+// for regular expression flash 
 function _invalidInput(inputField, errorID) {
     
     // _pushError(inputField, 'Illegal character detected.')
@@ -68,7 +68,7 @@ function _invalidInput(inputField, errorID) {
     }, 2200);
 }
 
-
+// for length warning / error
 function _lengthCheck(inputField, limit) {
 
     const remaining = limit - inputField.value.length;
@@ -89,6 +89,7 @@ function _lengthCheck(inputField, limit) {
 
 }
 
+//to prevent pastes from breaking comments box
 commentsInput.addEventListener('paste', function(event) {
     setTimeout(() => {
         if (this.value.length > 250) {
@@ -117,11 +118,29 @@ function handleInput(inputField, fieldName) {
     }
 }
 
-nameInput.addEventListener('input', () => handleInput(nameInput, 'name'));
-emailInput.addEventListener('input', () => handleInput(emailInput, 'email'));
+nameInput.addEventListener('input', () => {
+    if (nameInput.validity.valid) {
+        nameInput.setCustomValidity('');
+    }
+    handleInput(nameInput, 'name');
+
+});
+
+emailInput.addEventListener('input', () => {
+    if (emailInput.validity.valid) {
+        emailInput.setCustomValidity('');
+    }
+    handleInput(emailInput, 'email');
+
+});
+
 commentsInput.addEventListener('input', () => {
+    if (commentsInput.validity.valid && commentsInput.value.length >= 10 && commentsInput.value.length <= 250) {
+        commentsInput.setCustomValidity(''); 
+    }
     handleInput(commentsInput, 'comments');
-    _lengthCheck(commentsInput, 250);
+    _lengthCheck(commentsInput, 250); 
+
 });
 
 _lengthCheck(commentsInput, 250); // Initial check
@@ -144,7 +163,7 @@ _lengthCheck(commentsInput, 250); // Initial check
 });
 
 let formSubmitted = false;
-
+// for validation when submitting
     document.getElementById('form-container').addEventListener('submit', function(event) {
         event.preventDefault();
         form_errors = [];
@@ -156,13 +175,13 @@ let formSubmitted = false;
         document.getElementById('commentsError').textContent = '';
 
         if (!nameInput.checkValidity()) {
-            _pushError(nameInput, 'Please enter your name.')
+            _pushError(nameInput, 'Please enter your name.');
             document.getElementById('nameError').textContent = 'Please enter your name.';
             isValid = false;
         }
 
         if (!emailInput.checkValidity()) {
-            _pushError(emailInput, 'Please enter a valid email address.')
+            _pushError(emailInput, 'Please enter a valid email address.');
             document.getElementById('emailError').textContent = 'Please enter a valid email address.';
             isValid = false;
         }
